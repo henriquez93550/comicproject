@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var submissions = sequelize.define("submissions", {
-    text: DataTypes.STRING,
+    word: DataTypes.STRING,
   });
   return submissions;
 };
