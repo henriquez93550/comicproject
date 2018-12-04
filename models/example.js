@@ -2,43 +2,43 @@ module.exports = function(sequelize, DataTypes) {
   var submissions = sequelize.define("submissions", {
     w1: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w2: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w3: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w4: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w5: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w6: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w7: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w8: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w9: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     },
     w10: {
       type: DataTypes.STRING,
-      required: true
+      allowNull: false
     }
   });
   return submissions;
