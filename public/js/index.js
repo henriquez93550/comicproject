@@ -97,3 +97,36 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCgw7HqOw9nbPA6cjRTrsQQcn0tlDa12aE",
+    authDomain: "madlib-68ea6.firebaseapp.com",
+    databaseURL: "https://madlib-68ea6.firebaseio.com",
+    projectId: "madlib-68ea6",
+    storageBucket: "madlib-68ea6.appspot.com",
+    messagingSenderId: "639479628767"
+  };
+  firebase.initializeApp(config);
+
+var database = firebase.database();
+var story1 = 0;
+var story2 = 0;
+var story3 = 0;
+
+database.ref().push({
+  story1: 0,
+  story2: 0,
+  story3: 0,
+  voteTotal: 0
+});
+
+$("#submit").on("click", function(){
+  event.preventDefault();
+
+
+  
+});
