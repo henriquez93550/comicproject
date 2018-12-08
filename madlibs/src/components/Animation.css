@@ -24,7 +24,7 @@
   }
   
   .grass{
-    height: 25%;
+    height: 20%;
     background: seagreen;
   }
   
@@ -69,12 +69,16 @@
     transition: box-shadow 1s, transform 1s; 
    
 }
+a {
+    color: gray;
+    text-decoration: none;
+}
   
   /*// ELEMENTS TO ANIMATE //*/
   
   .mario {
       position: absolute;
-      top: -40px;
+      top: -35px;
       left: 0px;
       animation-name: drive;
       animation-duration: 3s;

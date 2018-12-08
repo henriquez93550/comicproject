@@ -8,7 +8,8 @@ class Animation extends Component {
             <div className="animation">
             <h3>Mad Libs!</h3>
             <div class="buttonHolder">
-            <button className="buttonA" type="submit">Begin</button>
+            <button className="buttonA"><a href="/form">Begin</a></button>
+           
             </div>
             <div className="sky" ></div >
             <img className="cloud" src="/images/cloud.png" alt="" />
