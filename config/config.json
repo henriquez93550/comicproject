@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Hurricane23$",
     "database": "wordsdb",
     "host": "localhost",
     "dialect": "mysql"

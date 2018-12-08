@@ -113,20 +113,64 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
   firebase.initializeApp(config);
 
 var database = firebase.database();
-var story1 = 0;
-var story2 = 0;
-var story3 = 0;
+var initialValue = 0;
+var vote1Counter = initialValue;
+var vote2Counter= initialValue;
+var vote3Counter = initialValue;
+var totalCounter = initialValue;
+var userVote = initialValue;
 
-database.ref().push({
-  story1: 0,
-  story2: 0,
-  story3: 0,
-  voteTotal: 0
+database.ref().on("value", function(snapshot){
+console.log(snapshot.val());
+
+ vote1Counter = snapshot.val().vote1Count;
+ vote2Counter= snapshot.val().vote2Count;
+ vote3Counter = snapshot.val().vote3Count;
+ totalCounter = snapshot.val().totalCount;
+
+ console.log(vote1Counter);
+ console.log(vote2Counter);
+ console.log(vote3Counter);
+ console.log(totalCounter);
 });
 
-$("#submit").on("click", function(){
+
+
+$(".btn").on("click", function(){
   event.preventDefault();
+ var userVote = this.value;
+ console.log(userVote);
 
+  if (userVote === "1") {
+    vote1Counter++;
+    totalCounter++;
+    sameChoice = Math.floor(vote1Counter / totalCounter * 100);
+  } 
 
-  
+  else if( userVote === "2"){
+    vote2Counter++;
+    totalCounter++;
+    sameChoice = Math.floor(vote2Counter / totalCounter * 100);
+    }
+
+    else {
+      vote3Counter++;
+    totalCounter++;
+    sameChoice = Math.floor(vote3Counter / totalCounter * 100);
+    }
+    database.ref().set({
+      vote1Count: vote1Counter,
+      vote2Count: vote2Counter,
+      vote3Count: vote3Counter,
+      totalCount: totalCounter
+    });
+
+    database.ref().set({
+      vote1Count: vote1Counter,
+      vote2Count: vote2Counter,
+      vote3Count: vote3Counter,
+      totalCount: totalCounter
+    });    
+console.log(sameChoice);
+
 });
