@@ -3,8 +3,9 @@ var db = require("../models");
 module.exports = function(app) {
 
   // Create a new example
-  app.post("/api/words", function(req, res) {
-    db.words.create({
+  app.post("/api/words/", function(req, res) {
+    db.submissions.create({
+      category:req.body.category,
       w1: req.body.word1,
       w2: req.body.word2,
       w3: req.body.word3,
@@ -17,13 +18,25 @@ module.exports = function(app) {
       w10: req.body.word10
     }).then(function(wordsdb) {
       res.json(wordsdb);
+      console.log(wordsdb)
     });
   });
 
-    // Get all examples
-    app.get("/api/words", function(req, res) {
-      db.words.findAll({}).then(function(wordsdb) {
-        res.json(wordsdb);
+  
+    // Get by current id
+    app.get("/api/words/:id", function(req, res) {
+      db.submissions.findAll({
+        
+           where:{id:req.body.id}
+          
+      }).then(function(wordsdb) {
+        res.json('FROM DB: ', wordsdb);
+        console.log(wordsdb)
       });
     });
+
+
 };
+
+
+
