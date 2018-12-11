@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
-import Jumbotron from './Jumbotron.jsx';
+import Container from './Container.jsx';
 
 
 class Home extends Component {
@@ -10,8 +10,8 @@ class Home extends Component {
     return (
       <div>
         <Navbar />
-       
-        <Jumbotron title="Welcome" subtitle="This is the subtitle" />
+        < Container  />
+        
         
         
         <Footer />
