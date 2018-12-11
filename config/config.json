@@ -1,14 +1,16 @@
+
+
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "your password",
     "database": "wordsdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "your password",
     "database": "wordsdb",
     "host": "localhost",
     "dialect": "mysql",
