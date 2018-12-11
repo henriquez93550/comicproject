@@ -16,7 +16,7 @@ $(function () {
       word8: $("#w7").val().trim(),
       word9: $("#w8").val().trim(),
       word10: $("#w9").val().trim(),
- 
+
     };
     console.log(newUser)
     // Send the POST request.
@@ -25,15 +25,16 @@ $(function () {
       data: newUser
     }).then(
       function (user) {
- 
+
         // Reload the page to get the updated list
         location.reload();
         //link to the story page
         window.location.href = "/user/" + user.id;
- 
+
       }
     );
   });
- 
- 
- });
+
+
+});
+
