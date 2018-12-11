@@ -2,22 +2,23 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/form", function(req, res) {
+    db.submissions.findAll({}).then(function(wordsdb) {
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+        submissions: wordsdb
       });
     });
   });
 
+  
+
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+  app.get("/user/:id", function(req, res) {
+    db.submissions.findOne({ where: { id: req.params.id } }).then(function(wordsdb) {
       res.render("example", {
-        example: dbExample
+        submissions: wordsdb
       });
-    });
+    })
   });
 
   // Render 404 page for any unmatched routes
@@ -25,3 +26,4 @@ module.exports = function(app) {
     res.render("404");
   });
 };
+//
