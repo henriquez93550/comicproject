@@ -80,7 +80,7 @@ console.log(snapshot.val());
 
 
 
-$(".btn").on("click", function(){
+$(".rate").on("click", function(){
   event.preventDefault();
  var userVote = this.value;
  console.log(userVote);
@@ -88,19 +88,22 @@ $(".btn").on("click", function(){
   if (userVote === "1") {
     vote1Counter++;
     totalCounter++;
-    sameChoice = Math.floor(vote1Counter / totalCounter * 100);
+    sameChoice1 = Math.floor(vote1Counter / totalCounter * 100);
+    $(".ratings1").html(sameChoice1 + "% of users have chosen the Forunate Events story.")
   } 
 
   else if( userVote === "2"){
     vote2Counter++;
     totalCounter++;
-    sameChoice = Math.floor(vote2Counter / totalCounter * 100);
+    sameChoice2 = Math.floor(vote2Counter / totalCounter * 100);
+    $(".ratings2").html(sameChoice2 + "% of users have chosen the Motor Skills story.")
     }
 
     else {
       vote3Counter++;
     totalCounter++;
-    sameChoice = Math.floor(vote3Counter / totalCounter * 100);
+    sameChoice3 = Math.floor(vote3Counter / totalCounter * 100);
+    $(".ratings3").html(sameChoice3 + "% of users have chosen the Furry Friends story.")
     }
     database.ref().set({
       vote1Count: vote1Counter,
