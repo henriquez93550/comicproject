@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var submissions = sequelize.define("submissions", {
     category: {
       type: DataTypes.STRING,
-      defaultValue: "Fortunate Events"
+      defaultValue: "Personal"
     },
     w1: {
       type: DataTypes.STRING,
