@@ -15,11 +15,11 @@ module.exports = function (app) {
   // Load example page and pass in an example by id
   app.get("/user/:id", function (req, res) {
     db.submissions.findOne({ where: { id: req.params.id } }).then(function (wordsdb) {
-      if (wordsdb.category === "Adventure") {
+      if (wordsdb.category === "Motor Skills") {
         res.render("example", {
           submissions: wordsdb
         });
-      } else if (wordsdb.category === "Social") {
+      } else if (wordsdb.category === "Furry Friends") {
         res.render("example2", {
           submissions: wordsdb
         });
