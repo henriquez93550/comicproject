@@ -38,3 +38,83 @@ $(function () {
 
 });
 
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleFormSubmit);
+$exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCgw7HqOw9nbPA6cjRTrsQQcn0tlDa12aE",
+    authDomain: "madlib-68ea6.firebaseapp.com",
+    databaseURL: "https://madlib-68ea6.firebaseio.com",
+    projectId: "madlib-68ea6",
+    storageBucket: "madlib-68ea6.appspot.com",
+    messagingSenderId: "639479628767"
+  };
+  firebase.initializeApp(config);
+
+var database = firebase.database();
+var initialValue = 0;
+var vote1Counter = initialValue;
+var vote2Counter= initialValue;
+var vote3Counter = initialValue;
+var totalCounter = initialValue;
+var userVote = initialValue;
+
+database.ref().on("value", function(snapshot){
+console.log(snapshot.val());
+
+ vote1Counter = snapshot.val().vote1Count;
+ vote2Counter= snapshot.val().vote2Count;
+ vote3Counter = snapshot.val().vote3Count;
+ totalCounter = snapshot.val().totalCount;
+
+ console.log(vote1Counter);
+ console.log(vote2Counter);
+ console.log(vote3Counter);
+ console.log(totalCounter);
+});
+
+
+
+$(".btn").on("click", function(){
+  event.preventDefault();
+ var userVote = this.value;
+ console.log(userVote);
+
+  if (userVote === "1") {
+    vote1Counter++;
+    totalCounter++;
+    sameChoice = Math.floor(vote1Counter / totalCounter * 100);
+  } 
+
+  else if( userVote === "2"){
+    vote2Counter++;
+    totalCounter++;
+    sameChoice = Math.floor(vote2Counter / totalCounter * 100);
+    }
+
+    else {
+      vote3Counter++;
+    totalCounter++;
+    sameChoice = Math.floor(vote3Counter / totalCounter * 100);
+    }
+    database.ref().set({
+      vote1Count: vote1Counter,
+      vote2Count: vote2Counter,
+      vote3Count: vote3Counter,
+      totalCount: totalCounter
+    });
+
+    database.ref().set({
+      vote1Count: vote1Counter,
+      vote2Count: vote2Counter,
+      vote3Count: vote3Counter,
+      totalCount: totalCounter
+    });    
+console.log(sameChoice);
+
+});
