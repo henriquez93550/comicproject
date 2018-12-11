@@ -1,26 +1,40 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.submissions.findAll({}).then(function(wordsdb) {
+  app.get("/", function (req, res) {
+    db.submissions.findAll({}).then(function (wordsdb) {
       res.render("index", {
-        msg: "Welcome!",
         submissions: wordsdb
       });
     });
   });
+
+
+
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
+  app.get("/user/:id", function (req, res) {
+    db.submissions.findOne({ where: { id: req.params.id } }).then(function (wordsdb) {
+      if (wordsdb.category === "Adventure") {
+        res.render("example", {
+          submissions: wordsdb
+        });
+      } else if (wordsdb.category === "Social") {
+        res.render("example2", {
+          submissions: wordsdb
+        });
+      } else {
+        res.render("example3", {
+          submissions: wordsdb
+        });
+      }
+
+    })
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };
+//

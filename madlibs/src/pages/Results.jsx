@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
 
-
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
+import Animation from '../components/Animation.jsx';
 
-import Madlibtwo from '../components/Madlibtwo.jsx';
 
-class Contact extends Component {
+
+
+class Results extends Component {
+    
     render() {
       return (
         <div>
           <Navbar />
-         
+          <Animation />
           
-          <Madlibtwo />
-         
-
-        
           <Footer />
         </div>
       );
     }
   }
   
-  export default Contact
+  export default Results
