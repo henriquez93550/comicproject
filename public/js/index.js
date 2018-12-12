@@ -106,25 +106,6 @@ $(function () {
 
 });
 
-<<<<<<< HEAD
-// Add event listeners to the submit and delete buttons
-// $(".submitBtn").on("click", handleFormSubmit);
-// $(".exampleList").on("click", ".delete", handleDeleteBtnClick);
-
-database.ref().on("value", function (snapshot) {
-	console.log(snapshot.val());
-
-	vote1Counter = snapshot.val().vote1Count;
-	vote2Counter = snapshot.val().vote2Count;
-	vote3Counter = snapshot.val().vote3Count;
-	totalCounter = snapshot.val().totalCount;
-
-	console.log(vote1Counter);
-	console.log(vote2Counter);
-	console.log(vote3Counter);
-	console.log(totalCounter);
-});
-=======
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
@@ -210,4 +191,3 @@ console.log(sameChoice);
 
 });
 
->>>>>>> b0cb91f60aba07133db18df82b3225649737f869
