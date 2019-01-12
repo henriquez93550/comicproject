@@ -8,3 +8,6 @@
   nodeJS
   react
   sequelize
+  
+  ## Project link
+  https://still-fortress-25011.herokuapp.com/
